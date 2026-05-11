@@ -2,173 +2,253 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Bean Bliss Café</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sara Chen — UI/UX Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --bg: #faf7f2;
-    --text: #1a1a1a;
-    --accent: #e85d26;
-    --accent2: #f4a261;
-    --muted: #888;
-    --card: #fff;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-  /* NAV */
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 6%; }
-  .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; }
-  nav ul { list-style: none; display: flex; gap: 2.5rem; }
-  nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
-  nav ul a:hover { color: var(--accent); }
-  .nav-cta { background: var(--text); color: #fff !important; padding: 0.6rem 1.5rem; border-radius: 100px; }
+body {
+  background: #faf7f2;
+  color: #333;
+}
 
-  /* HERO */
-  .hero { padding: 4rem 6% 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .hero-left h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
-  .hero-left h1 em { color: var(--accent); font-style: italic; }
-  .hero-left p { color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; font-size: 1rem; max-width: 420px; }
-  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary { background: var(--accent); color: #fff; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: transform 0.2s; }
-  .btn-primary:hover { transform: translateY(-2px); }
-  .btn-secondary { border: 1.5px solid var(--text); color: var(--text); padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
-  .btn-secondary:hover { background: var(--text); color: #fff; }
-  .hero-right { position: relative; }
-  .hero-img { width: 100%; aspect-ratio: 4/5; background: linear-gradient(135deg, #e85d26 0%, #f4a261 50%, #ffd166 100%); border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 5rem; color: rgba(255,255,255,0.3); }
-  .badge { position: absolute; bottom: 10%; right: -5%; background: var(--card); padding: 1rem 1.5rem; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); font-size: 0.85rem; font-weight: 500; }
-  .badge span { color: var(--accent); font-size: 1.5rem; font-weight: 700; display: block; }
+/* ---------- NAVBAR ---------- */
+nav {
+  background: #3e2723;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  /* STATS */
-  .stats { padding: 4rem 6%; display: flex; gap: 3rem; border-top: 1px solid #e5e0d8; border-bottom: 1px solid #e5e0d8; flex-wrap: wrap; }
-  .stat-item { }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--accent); }
-  .stat-label { color: var(--muted); font-size: 0.85rem; margin-top: 0.25rem; }
+nav h2 {
+  color: #fff;
+}
 
-  /* WORK */
-  .work { padding: 6rem 6%; }
-  .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
-  .work-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); }
-  .work-header a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
-  .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-  .work-card { background: var(--card); border-radius: 16px; overflow: hidden; transition: transform 0.3s; }
-  .work-card:hover { transform: translateY(-8px); }
-  .work-thumb { height: 220px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-  .w1 { background: linear-gradient(135deg, #667eea, #764ba2); }
-  .w2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
-  .w3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
-  .work-info { padding: 1.5rem; }
-  .work-info h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
-  .work-info p { color: var(--muted); font-size: 0.85rem; }
-  .work-type { display: inline-block; font-size: 0.75rem; color: var(--accent); background: #fff3ef; padding: 0.2rem 0.8rem; border-radius: 100px; margin-bottom: 0.75rem; }
+nav a, nav button {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
-  /* CONTACT */
-  .contact { padding: 6rem 6%; background: var(--text); color: #fff; text-align: center; margin: 4rem 6%; border-radius: 24px; }
-  .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
-  .contact h2 em { color: var(--accent2); }
-  .contact p { color: #aaa; margin-bottom: 2.5rem; }
-  .contact .btn-primary { display: inline-block; }
+/* ---------- HERO ---------- */
+header {
+  height: 90vh;
+  background: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085") center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
 
-  footer { padding: 2rem 6%; display: flex; justify-content: space-between; color: var(--muted); font-size: 0.8rem; flex-wrap: wrap; gap: 1rem; }
+.hero {
+  animation: fadeIn 2s ease;
+}
 
-  @media(max-width: 768px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-  }
+.hero h1 {
+  font-size: 4rem;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #c49b63;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  padding: 60px 10%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ---------- MENU ---------- */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.menu-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+  animation: slideUp 1s ease;
+}
+
+.menu-card:hover {
+  transform: scale(1.05);
+}
+
+.menu-card button {
+  margin-top: 10px;
+  background: #3e2723;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+/* ---------- MODALS ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 300px;
+  animation: fadeIn 0.5s ease;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: #3e2723;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #3e2723;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0;}
+  to { transform: translateY(0); opacity: 1;}
+}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="logo">Sara Chen.</div>
-  <ul>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#" class="nav-cta">Hire Me</a></li>
-  </ul>
+  <h2>Bean Bliss ☕</h2>
+  <div>
+    <a href="#menu">Menu</a>
+    <button onclick="openLogin()">Login</button>
+  </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-left">
-    <h1>I Design <em>Beautiful</em><br>Digital Experiences</h1>
-    <p>UI/UX designer passionate about creating interfaces that feel intuitive, look stunning, and convert visitors into customers.</p>
-    <div class="btn-group">
-      <a href="#work" class="btn-primary">See My Work</a>
-      <a href="#contact" class="btn-secondary">Get In Touch</a>
-    </div>
+<!-- HERO -->
+<header>
+  <div class="hero">
+    <h1>Fresh Coffee, Cozy Vibes</h1>
+    <p>Order your favorite brew now</p>
+    <button onclick="alert('Online ordering coming soon!')">Order Now</button>
   </div>
-  <div class="hero-right">
-    <div class="hero-img">✦</div>
-    <div class="badge">
-      <span>3+</span>
-      Years of Experience
-    </div>
+</header>
+
+<!-- MENU -->
+<section id="menu">
+<h2>Our Menu</h2>
+<div class="menu">
+  <div class="menu-card">
+    <h3>Espresso</h3>
+    <p>Strong & bold</p>
+    <p>₹120</p>
+    <button onclick="addToCart('Espresso')">Order</button>
   </div>
+  <div class="menu-card">
+    <h3>Cappuccino</h3>
+    <p>Milk & foam</p>
+    <p>₹180</p>
+    <button onclick="addToCart('Cappuccino')">Order</button>
+  </div>
+  <div class="menu-card">
+    <h3>Cold Brew</h3>
+    <p>Smooth & chilled</p>
+    <p>₹200</p>
+    <button onclick="addToCart('Cold Brew')">Order</button>
+  </div>
+</div>
 </section>
 
-<div class="stats">
-  <div class="stat-item">
-    <div class="stat-num">24+</div>
-    <div class="stat-label">Projects Completed</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">18+</div>
-    <div class="stat-label">Happy Clients</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">5★</div>
-    <div class="stat-label">Average Rating</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Client Satisfaction</div>
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeLogin()">×</span>
+    <h3>Login</h3>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
   </div>
 </div>
 
-<section class="work" id="work">
-  <div class="work-header">
-    <h2>Selected Projects</h2>
-    <a href="#">View All →</a>
-  </div>
-  <div class="work-grid">
-    <div class="work-card">
-      <div class="work-thumb w1">🛍️</div>
-      <div class="work-info">
-        <span class="work-type">E-Commerce</span>
-        <h3>ShopFlow Redesign</h3>
-        <p>Complete UX overhaul increasing conversions by 34%</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-thumb w2">💊</div>
-      <div class="work-info">
-        <span class="work-type">Health App</span>
-        <h3>MediTrack Dashboard</h3>
-        <p>Medication tracking app with 50k+ active users</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <div class="work-thumb w3">🏦</div>
-      <div class="work-info">
-        <span class="work-type">Fintech</span>
-        <h3>BankEasy Mobile App</h3>
-        <p>Banking app redesign, reducing support tickets by 60%</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Let's Create Something <em>Amazing</em></h2>
-  <p>Have a project in mind? I'd love to hear about it.</p>
-  <a href="mailto:sara@chen.design" class="btn-primary">sara@chen.design</a>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  <span>© 2025 Sara Chen</span>
-  <span>Designed with ♥ in San Francisco</span>
+  © 2026 Bean Bliss Café
 </footer>
+
+<script>
+function openLogin() {
+  document.getElementById("loginModal").style.display = "flex";
+}
+
+function closeLogin() {
+  document.getElementById("loginModal").style.display = "none";
+}
+
+function login() {
+  alert("Login successful (demo)");
+  closeLogin();
+}
+
+function addToCart(item) {
+  alert(item + " added to cart ☕");
+}
+</script>
 
 </body>
 </html>
